@@ -1,5 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
-results/*.pt
+results/ckpt/
+results/log_*.txt
 *.log

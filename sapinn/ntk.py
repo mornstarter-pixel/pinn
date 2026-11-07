@@ -105,7 +105,7 @@ def spectrum(K):
     return np.clip(w, 0, None)
 
 
-def spectrum_stats(w, rel_tol=1e-10):
+def spectrum_stats(w, rel_tol=1e-13):
     w = np.asarray(w)
     pos = w[w > rel_tol * w.max()]
     p = w / w.sum()
