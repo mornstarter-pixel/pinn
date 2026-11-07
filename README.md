@@ -47,6 +47,18 @@ python scripts/plot.py             # figures/table.md, curves.png, solution.png,
 `data/AC.mat` is the Chebfun reference solution from
 [maziarraissi/PINNs](https://github.com/maziarraissi/PINNs), as used by the paper.
 
+## Results (Allen-Cahn, relative L2 error, 3 seeds)
+
+| constraints | weights | rel. L2 (mean ± std) | paper |
+|---|---|---|---|
+| soft | uniform (baseline PINN) | 0.99 ± 0.002 | 0.96 |
+| soft | self-adaptive (SA-PINN) | (2.21 ± 0.07)e-2 | (2.1 ± 1.2)e-2 |
+| hard | uniform | (1.68 ± 0.07)e-2 | - |
+| hard | self-adaptive | (2.3 ± 0.8)e-3 | - |
+
+Per-run JSON/NPZ files are in `results/`, NTK spectra in `results/ntk/`, figures in `figures/`
+(`solution.png`, `curves.png`, `weights.png`, `ntk.png`, `table.md`).
+
 ## Layout
 
 ```

@@ -69,12 +69,12 @@ def fig_curves(runs, path):
         ax.axvline(n_adam, color="k", lw=0.6, ls=":")
         ax.set_xlabel("iteration (Adam | L-BFGS)")
         ax.grid(alpha=0.3)
-    axes[0].set_ylabel("relative L2 error"); axes[1].set_ylabel("PDE residual loss (unweighted scale differs for SA)")
+    axes[0].set_ylabel("relative L2 error"); axes[1].set_ylabel("residual loss term")
     axes[0].legend(ncol=1, loc="lower left")
     fig.tight_layout(); fig.savefig(path, dpi=200); plt.close(fig)
 
 
-def fig_solution(runs, results, path, names=("soft_uniform", "soft_sa", "hard_sa", "hard_uniform")):
+def fig_solution(runs, results, path, names=("soft_uniform", "soft_sa", "hard_uniform", "hard_sa")):
     x, t, u = load_reference()
     names = [n for n in names if n in runs]
     fig, axes = plt.subplots(2, len(names) + 1, figsize=(2.2 * (len(names) + 1), 4.0),
@@ -117,36 +117,42 @@ def fig_weights(runs, results, path, name="soft_sa"):
     fig.tight_layout(); fig.savefig(path, dpi=200); plt.close(fig)
 
 
-def fig_ntk(results, path, seed=0, steps=("step0", "step10000")):
+def fig_ntk(results, path, seed=0, step="step10000"):
     ntk_dir = Path(results) / "ntk"
     files = {n: ntk_dir / f"{n}_seed{seed}.npz" for n in ORDER if (ntk_dir / f"{n}_seed{seed}.npz").exists()}
     if not files:
         return
-    fig, axes = plt.subplots(1, len(steps) + 1, figsize=(2.6 * (len(steps) + 1), 2.6))
-    for ax, st in zip(axes, steps):
-        for name, f in files.items():
-            d = np.load(f)
-            key = f"{st}_weighted_full"
-            if key not in d:
-                continue
+    fig, axes = plt.subplots(1, 3, figsize=(7.6, 2.5))
+    # (a) spectrum of the weighted kernel after the Adam phase
+    ax = axes[0]
+    for name, f in files.items():
+        d = np.load(f)
+        key = f"{step}_weighted_full"
+        if key in d:
             w = d[key]
             ax.semilogy(np.arange(1, len(w) + 1), w / w[0], color=COLOR[name], lw=1.1, label=LABEL[name])
-        ax.set_title(f"NTK spectrum, {st.replace('step', 'iter ')}"); ax.set_xlabel("index"); ax.set_ylabel(r"$\lambda_i/\lambda_1$")
-        ax.set_ylim(1e-12, 2); ax.grid(alpha=0.3)
-    axes[0].legend(fontsize=6)
-    # trace share of the IC block over training (soft variants only)
-    ax = axes[-1]
+    ax.set_title(f"(a) NTK spectrum after Adam"); ax.set_xlabel("eigenvalue index"); ax.set_ylabel(r"$\lambda_i/\lambda_1$")
+    ax.set_ylim(1e-12, 2); ax.set_xlim(0, 420); ax.grid(alpha=0.3); ax.legend(fontsize=6)
+    # (b) number of significant modes during training
+    ax = axes[1]
+    for name, f in files.items():
+        js = json.load(open(f.with_suffix(".json")))
+        pts = sorted((e["step"], e["unweighted_full"]["n_above_1e-3"]) for e in js["steps"].values())
+        ax.plot([p[0] for p in pts], [p[1] for p in pts], "o-", color=COLOR[name], lw=1, ms=3, label=LABEL[name])
+    ax.set_title(r"(b) modes with $\lambda_i>10^{-3}\lambda_1$ (unweighted)"); ax.set_xlabel("iteration"); ax.grid(alpha=0.3)
+    # (c) trace share of the IC block (soft variants only)
+    ax = axes[2]
     for name, f in files.items():
         js = json.load(open(f.with_suffix(".json")))
         pts = []
-        for st, e in js["steps"].items():
+        for e in js["steps"].values():
             tr = e["weighted_traces"]
             if "ic" in tr:
-                pts.append((e["step"], tr["ic"] / (sum(tr.values()))))
+                pts.append((e["step"], tr["ic"] / sum(tr.values())))
         if pts:
             pts.sort()
             ax.plot([p[0] for p in pts], [p[1] for p in pts], "o-", color=COLOR[name], lw=1, ms=3, label=LABEL[name])
-    ax.set_title("IC share of NTK trace"); ax.set_xlabel("iteration"); ax.set_ylim(-0.05, 1.05); ax.grid(alpha=0.3)
+    ax.set_title("(c) IC share of NTK trace"); ax.set_xlabel("iteration"); ax.set_ylim(-0.05, 1.05); ax.grid(alpha=0.3)
     ax.legend(fontsize=6)
     fig.tight_layout(); fig.savefig(path, dpi=200); plt.close(fig)
 

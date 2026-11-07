@@ -1,0 +1,231 @@
+{
+ "name": "hard_uniform",
+ "seed": 1,
+ "steps": {
+  "step0": {
+   "step": 0,
+   "unweighted_full": {
+    "lambda_max": 66.07285787822329,
+    "lambda_min_pos": 6.836912042287576e-12,
+    "condition": 9664137474571.904,
+    "trace": 99.93817880589994,
+    "effective_rank": 2.587059355059286,
+    "n": 400,
+    "n_above_1e-3": 4
+   },
+   "unweighted_traces": {
+    "r": 99.93817880589872
+   },
+   "unweighted_r": {
+    "lambda_max": 66.07285787822329,
+    "lambda_min_pos": 6.836912042287576e-12,
+    "condition": 9664137474571.904,
+    "trace": 99.93817880589994,
+    "effective_rank": 2.587059355059286,
+    "n": 400,
+    "n_above_1e-3": 4
+   },
+   "weighted_full": {
+    "lambda_max": 66.07285787822329,
+    "lambda_min_pos": 6.836912042287576e-12,
+    "condition": 9664137474571.904,
+    "trace": 99.93817880589994,
+    "effective_rank": 2.587059355059286,
+    "n": 400,
+    "n_above_1e-3": 4
+   },
+   "weighted_traces": {
+    "r": 99.93817880589872
+   },
+   "weighted_r": {
+    "lambda_max": 66.07285787822329,
+    "lambda_min_pos": 6.836912042287576e-12,
+    "condition": 9664137474571.904,
+    "trace": 99.93817880589994,
+    "effective_rank": 2.587059355059286,
+    "n": 400,
+    "n_above_1e-3": 4
+   }
+  },
+  "final": {
+   "step": 20933,
+   "unweighted_full": {
+    "lambda_max": 2132.2079324419956,
+    "lambda_min_pos": 2.2806575393603905e-10,
+    "condition": 9349092950798.621,
+    "trace": 4232.633652332026,
+    "effective_rank": 5.142240720777487,
+    "n": 400,
+    "n_above_1e-3": 25
+   },
+   "unweighted_traces": {
+    "r": 4232.633652332032
+   },
+   "unweighted_r": {
+    "lambda_max": 2132.2079324419956,
+    "lambda_min_pos": 2.2806575393603905e-10,
+    "condition": 9349092950798.621,
+    "trace": 4232.633652332026,
+    "effective_rank": 5.142240720777487,
+    "n": 400,
+    "n_above_1e-3": 25
+   },
+   "weighted_full": {
+    "lambda_max": 2132.2079324419956,
+    "lambda_min_pos": 2.2806575393603905e-10,
+    "condition": 9349092950798.621,
+    "trace": 4232.633652332026,
+    "effective_rank": 5.142240720777487,
+    "n": 400,
+    "n_above_1e-3": 25
+   },
+   "weighted_traces": {
+    "r": 4232.633652332032
+   },
+   "weighted_r": {
+    "lambda_max": 2132.2079324419956,
+    "lambda_min_pos": 2.2806575393603905e-10,
+    "condition": 9349092950798.621,
+    "trace": 4232.633652332026,
+    "effective_rank": 5.142240720777487,
+    "n": 400,
+    "n_above_1e-3": 25
+   }
+  },
+  "step1000": {
+   "step": 1000,
+   "unweighted_full": {
+    "lambda_max": 3671.033490497819,
+    "lambda_min_pos": 3.761254697103768e-10,
+    "condition": 9760130026090.973,
+    "trace": 4483.823176875639,
+    "effective_rank": 2.134284266098945,
+    "n": 400,
+    "n_above_1e-3": 9
+   },
+   "unweighted_traces": {
+    "r": 4483.823176875637
+   },
+   "unweighted_r": {
+    "lambda_max": 3671.033490497819,
+    "lambda_min_pos": 3.761254697103768e-10,
+    "condition": 9760130026090.973,
+    "trace": 4483.823176875639,
+    "effective_rank": 2.134284266098945,
+    "n": 400,
+    "n_above_1e-3": 9
+   },
+   "weighted_full": {
+    "lambda_max": 3671.033490497819,
+    "lambda_min_pos": 3.761254697103768e-10,
+    "condition": 9760130026090.973,
+    "trace": 4483.823176875639,
+    "effective_rank": 2.134284266098945,
+    "n": 400,
+    "n_above_1e-3": 9
+   },
+   "weighted_traces": {
+    "r": 4483.823176875637
+   },
+   "weighted_r": {
+    "lambda_max": 3671.033490497819,
+    "lambda_min_pos": 3.761254697103768e-10,
+    "condition": 9760130026090.973,
+    "trace": 4483.823176875639,
+    "effective_rank": 2.134284266098945,
+    "n": 400,
+    "n_above_1e-3": 9
+   }
+  },
+  "step10000": {
+   "step": 10000,
+   "unweighted_full": {
+    "lambda_max": 1588.032369401024,
+    "lambda_min_pos": 1.7396540856235688e-10,
+    "condition": 9128437558503.494,
+    "trace": 3374.5043901534596,
+    "effective_rank": 4.697670315677745,
+    "n": 400,
+    "n_above_1e-3": 20
+   },
+   "unweighted_traces": {
+    "r": 3374.50439015346
+   },
+   "unweighted_r": {
+    "lambda_max": 1588.032369401024,
+    "lambda_min_pos": 1.7396540856235688e-10,
+    "condition": 9128437558503.494,
+    "trace": 3374.5043901534596,
+    "effective_rank": 4.697670315677745,
+    "n": 400,
+    "n_above_1e-3": 20
+   },
+   "weighted_full": {
+    "lambda_max": 1588.032369401024,
+    "lambda_min_pos": 1.7396540856235688e-10,
+    "condition": 9128437558503.494,
+    "trace": 3374.5043901534596,
+    "effective_rank": 4.697670315677745,
+    "n": 400,
+    "n_above_1e-3": 20
+   },
+   "weighted_traces": {
+    "r": 3374.50439015346
+   },
+   "weighted_r": {
+    "lambda_max": 1588.032369401024,
+    "lambda_min_pos": 1.7396540856235688e-10,
+    "condition": 9128437558503.494,
+    "trace": 3374.5043901534596,
+    "effective_rank": 4.697670315677745,
+    "n": 400,
+    "n_above_1e-3": 20
+   }
+  },
+  "step5000": {
+   "step": 5000,
+   "unweighted_full": {
+    "lambda_max": 4650.142549344469,
+    "lambda_min_pos": 4.75162338565623e-10,
+    "condition": 9786429125216.232,
+    "trace": 6577.382235615424,
+    "effective_rank": 2.938049641100617,
+    "n": 400,
+    "n_above_1e-3": 12
+   },
+   "unweighted_traces": {
+    "r": 6577.382235615427
+   },
+   "unweighted_r": {
+    "lambda_max": 4650.142549344469,
+    "lambda_min_pos": 4.75162338565623e-10,
+    "condition": 9786429125216.232,
+    "trace": 6577.382235615424,
+    "effective_rank": 2.938049641100617,
+    "n": 400,
+    "n_above_1e-3": 12
+   },
+   "weighted_full": {
+    "lambda_max": 4650.142549344469,
+    "lambda_min_pos": 4.75162338565623e-10,
+    "condition": 9786429125216.232,
+    "trace": 6577.382235615424,
+    "effective_rank": 2.938049641100617,
+    "n": 400,
+    "n_above_1e-3": 12
+   },
+   "weighted_traces": {
+    "r": 6577.382235615427
+   },
+   "weighted_r": {
+    "lambda_max": 4650.142549344469,
+    "lambda_min_pos": 4.75162338565623e-10,
+    "condition": 9786429125216.232,
+    "trace": 6577.382235615424,
+    "effective_rank": 2.938049641100617,
+    "n": 400,
+    "n_above_1e-3": 12
+   }
+  }
+ }
+}
