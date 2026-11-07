@@ -38,7 +38,8 @@ Hard constraints (`sapinn/model.py`):
 ```bash
 python -m venv .venv && .venv/Scripts/activate      # or source .venv/bin/activate
 pip install -r requirements.txt                       # CUDA build of torch recommended
-python scripts/run_ablation.py --constraints soft hard_bc hard_ic hard --weightings uniform sa --seeds 0 1 2
+python scripts/run_ablation.py --constraints soft hard --weightings uniform sa --seeds 0 1 2   # main 2x2 ablation
+# optional: --constraints hard_bc hard_ic  (one constraint at a time)
 python scripts/run_ntk.py          # NTK of the saved checkpoints
 python scripts/plot.py             # figures/table.md, curves.png, solution.png, weights.png, ntk.png
 ```

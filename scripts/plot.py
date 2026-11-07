@@ -17,8 +17,8 @@ import matplotlib.pyplot as plt  # noqa: E402
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sapinn.pde import load_reference  # noqa: E402
 
-ORDER = ["soft_uniform", "soft_sa", "hard_bc_uniform", "hard_bc_sa",
-         "hard_ic_uniform", "hard_ic_sa", "hard_uniform", "hard_sa"]
+ORDER = ["soft_uniform", "soft_sa", "hard_uniform", "hard_sa",
+         "hard_bc_uniform", "hard_bc_sa", "hard_ic_uniform", "hard_ic_sa"]
 LABEL = {"soft_uniform": "soft / uniform (baseline PINN)", "soft_sa": "soft / SA (paper)",
          "hard_bc_uniform": "hard BC / uniform", "hard_bc_sa": "hard BC / SA",
          "hard_ic_uniform": "hard IC / uniform", "hard_ic_sa": "hard IC / SA",
