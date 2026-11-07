@@ -122,7 +122,7 @@ def fig_ntk(results, path, seed=0, step="step10000"):
     files = {n: ntk_dir / f"{n}_seed{seed}.npz" for n in ORDER if (ntk_dir / f"{n}_seed{seed}.npz").exists()}
     if not files:
         return
-    fig, axes = plt.subplots(1, 3, figsize=(7.6, 2.5))
+    fig, axes = plt.subplots(1, 3, figsize=(8.0, 2.5))
     # (a) spectrum of the weighted kernel after the Adam phase
     ax = axes[0]
     for name, f in files.items():
@@ -131,7 +131,7 @@ def fig_ntk(results, path, seed=0, step="step10000"):
         if key in d:
             w = d[key]
             ax.semilogy(np.arange(1, len(w) + 1), w / w[0], color=COLOR[name], lw=1.1, label=LABEL[name])
-    ax.set_title(f"(a) NTK spectrum after Adam"); ax.set_xlabel("eigenvalue index"); ax.set_ylabel(r"$\lambda_i/\lambda_1$")
+    ax.set_title("(a) spectrum after Adam", fontsize=9); ax.set_xlabel("eigenvalue index"); ax.set_ylabel(r"$\lambda_i/\lambda_1$")
     ax.set_ylim(1e-12, 2); ax.set_xlim(0, 420); ax.grid(alpha=0.3); ax.legend(fontsize=6)
     # (b) number of significant modes during training
     ax = axes[1]
@@ -139,7 +139,7 @@ def fig_ntk(results, path, seed=0, step="step10000"):
         js = json.load(open(f.with_suffix(".json")))
         pts = sorted((e["step"], e["unweighted_full"]["n_above_1e-3"]) for e in js["steps"].values())
         ax.plot([p[0] for p in pts], [p[1] for p in pts], "o-", color=COLOR[name], lw=1, ms=3, label=LABEL[name])
-    ax.set_title(r"(b) modes with $\lambda_i>10^{-3}\lambda_1$ (unweighted)"); ax.set_xlabel("iteration"); ax.grid(alpha=0.3)
+    ax.set_title(r"(b) modes above $10^{-3}\lambda_1$", fontsize=9); ax.set_xlabel("iteration"); ax.grid(alpha=0.3)
     # (c) trace share of the IC block (soft variants only)
     ax = axes[2]
     for name, f in files.items():
@@ -152,7 +152,7 @@ def fig_ntk(results, path, seed=0, step="step10000"):
         if pts:
             pts.sort()
             ax.plot([p[0] for p in pts], [p[1] for p in pts], "o-", color=COLOR[name], lw=1, ms=3, label=LABEL[name])
-    ax.set_title("(c) IC share of NTK trace"); ax.set_xlabel("iteration"); ax.set_ylim(-0.05, 1.05); ax.grid(alpha=0.3)
+    ax.set_title("(c) IC share of NTK trace", fontsize=9); ax.set_xlabel("iteration"); ax.set_ylim(-0.05, 1.05); ax.grid(alpha=0.3)
     ax.legend(fontsize=6)
     fig.tight_layout(); fig.savefig(path, dpi=200); plt.close(fig)
 
